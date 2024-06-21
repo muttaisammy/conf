@@ -32,10 +32,5 @@ public class HomeController {
         return "redirect:/success";
     }
 
-//    @GetMapping("/")
-//    public String home(Model model) {
-//        model.addAttribute("message", "Welcome to the Conference Application!");
-//        return "home";
-//    }
 }
 

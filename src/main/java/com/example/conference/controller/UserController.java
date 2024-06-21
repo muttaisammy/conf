@@ -26,8 +26,10 @@ public class UserController {
     @PostMapping("/register")
     public String registerUser(@Valid @ModelAttribute User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
-            return "register";
+            return "feedback";
         }
+
+
 
         userService.saveUser(user);
         return "redirect:/success";
