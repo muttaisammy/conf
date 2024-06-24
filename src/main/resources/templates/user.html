@@ -7,17 +7,35 @@
 <h1>User Form</h1>
 <form action="#" th:action="@{/user}" th:object="${user}" method="post">
     <div>
+        <label for="name">Prefix:</label>
+        <input type="text" id="prefix" th:field="*{prefix}" />
+    </div>
         <label for="name">Name:</label>
         <input type="text" id="name" th:field="*{name}" />
     </div>
     <div>
-        <label for="email">Email:</label>
-        <input type="email" id="email" th:field="*{email}" />
+        <label for="county">County:</label>
+        <input type="text" id="county" th:field="*{county}" />
     </div>
     <div>
-        <label for="password">Password:</label>
-        <input type="password" id="password" th:field="*{password}" />
+        <label for="name">Designation:</label>
+        <input type="text" id="designation" th:field="*{Designation}" />
     </div>
+    <div>
+        <label for="abstracts">Presenting an Abstract? {Yes/ No}:</label>
+        <input type="text" id="abstracts" th:field="*{abstracts}" />
+
+
+    <label for="title">If Yes, Title</label>
+        <input type="text" id="title" th:field="*{title}" />
+
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" th:field="*{email}" />
+
+    </div>
+
+
     <div>
         <button type="submit">Submit</button>
     </div>

@@ -17,13 +17,13 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping("/register")
+    @GetMapping("/registration")
     public String showRegistrationForm(Model model) {
         model.addAttribute("user", new User());
-        return "register";
+        return "registration";
     }
 
-    @PostMapping("/register")
+    @PostMapping("/registration")
     public String registerUser(@Valid @ModelAttribute User user, BindingResult bindingResult, Model model) {
         if (bindingResult.hasErrors()) {
             return "feedback";
@@ -34,5 +34,7 @@ public class UserController {
         userService.saveUser(user);
         return "redirect:/success";
     }
+
+
 
 }

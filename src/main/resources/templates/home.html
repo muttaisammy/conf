@@ -1,61 +1,67 @@
+
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html land="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <title>AMPATH</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/jquery-3.7.1.min.js"></script>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width; initial-scale=1.0">
-    <link rel="shortcut icon" type="image/x-icon" href="img/ampath.jpeg">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/main.css">
-    <link rel="stylesheet" type="text/css" href="css/uikit.min.css">
-    <link rel="stylesheet" type="text/css" href="css/fontawesome/css/all.css">
+
 </head>
 <body>
 
+<!-- Bootstrap JS and dependencies -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<!-- Navbar Section Start -->
-<nav class="navbar navbar-dark navbar-expand-lg"  uk-sticky="top:100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+
     <div class="container">
-        <a href="index.html" class="navbar-brand">
-            <img src="/img/USAID AMPATH Uzima_v2-01.png" class="img-fluid p-0" style="width: 25%;">
+        <a class="navbar-brand" th:href="@{/index}">
+            <img style="width: 50%;" class="img-fluid p-0" th:src="@{/img/USAID AMPATH Uzima_v2-01.png}">
             <div class="ml-2 p-0 d-inline webT"></div>
         </a>
-        <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navBar">
+        <button data-target="#navBar" data-toggle="collapse" class="navbar-toggler navbar-toggler-right">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navBar1">
-            <ul class="navbar-nav  ml-auto ">
-
+        <div id="navBar" class="collapse navbar-collapse">
+            <ul class="navbar-nav justify-content-end">
                 <li class="nav-item active">
-                    <a class="nav-link " href="index.html">Abstract</a>
+                    <a th:href="@{/home}" class="nav-link">Abstract</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Registration.html">Registration</a>
+                    <a th:href="@{/registration}" class="nav-link">Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Feedback.html">Feedback</a>
+                    <a th:href="@{/feedback}" class="nav-link">Feedback</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="photo.html">Gallery</a>
+                    <a th:href="@{/photo}" class="nav-link">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Correspondence.html">Correspondence</a>
+                    <a th:href="@{/correspondence}" class="nav-link">Correspondence</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="Archives.html">Archives</a>
+                    <a th:href="@{/archives}" class="nav-link">Archives</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
-<section class="bg-dark" id="slider1">
-    <div data-ride="carousel" class="carousel slide" id="myCarousel1">
+<section class="bg-dark" id="slider">
+    <div data-ride="carousel" class="carousel slide" id="myCarousel">
         <ol class="carousel-indicators">
             <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
             <li data-slide-to="1" data-target="#myCarousel"></li>
@@ -139,13 +145,17 @@
                         </div>
 
                         <div style="background-color: #87CEEB;" class="p-4 code-to-copy">
+
+                            <div style="background-color: #87CEEB;" class="p-4 code-to-copy">
+
+
+
+
                             <form action="#" th:action="@{/}" th:object="${user}" method="post">
-
-
                                 <div class="form-group">
                                     <label for="prefix">Prefix:</label>
-                                    <input type="text" class="form-control" id="prefix" th:field="*{name}" />
-                                    <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></div>
+                                    <input type="text" class="form-control" id="prefix" th:field="*{prefix}" />
+                                    <div th:if="${#fields.hasErrors('prefix')}" class="text-danger" th:errors="*{prefix}"></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Name:</label>
@@ -153,432 +163,53 @@
                                     <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="name">County:</label>
-                                    <input type="text" class="form-control" id="password" th:field="*{password}" />
-                                    <div th:if="${#fields.hasErrors('password')}" class="text-danger" th:errors="*{password}"></div>
+                                    <label for="county">County:</label>
+                                    <input type="text" class="form-control" id="county" th:field="*{county}" />
+                                    <div th:if="${#fields.hasErrors('county')}" class="text-danger" th:errors="*{county}"></div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label for="designation">Designation:</label>
+                                    <input type="text" class="form-control" id="designation" th:field="*{designation}" />
+                                    <div th:if="${#fields.hasErrors('designation')}" class="text-danger" th:errors="*{designation}"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="abstracts">Presenting an Abstract? {Yes/No}:</label>
+                                    <input type="text" class="form-control" id="abstracts" th:field="*{abstracts}" />
+                                    <div th:if="${#fields.hasErrors('abstracts')}" class="text-danger" th:errors="*{abstracts"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="title">If Yes, Abstract Title:</label>
+                                    <input type="text" class="form-control" id="title" th:field="*{title}" />
+                                    <div th:if="${#fields.hasErrors('title')}" class="text-danger" th:errors="*{title}"></div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="name">Designation:</label>
-                                    <input type="text" class="form-control" id="name" th:field="*{name}" />
-                                    <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Presenting an Abstract? {Yes/ No}:</label>
-                                    <input type="text" class="form-control" id="email" th:field="*{email}" />
-                                    <div th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="password">If Yes, Abstract Title:</label>
-                                    <input type="text" class="form-control" id="password" th:field="*{password}" />
-                                    <div th:if="${#fields.hasErrors('password')}" class="text-danger" th:errors="*{password}"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="name">Date  of Travel:</label>
-                                    <input type="text" date="form-control" id="name" th:field="*{name}" />
-                                    <div th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></div>
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email Address:</label>
+                                    <label for="email">Email:</label>
                                     <input type="email" class="form-control" id="email" th:field="*{email}" />
                                     <div th:if="${#fields.hasErrors('email')}" class="text-danger" th:errors="*{email}"></div>
                                 </div>
+
                                 <div class="form-group">
-                                    <label for="password">Phone Number:</label>
-                                    <input type="number" class="form-control" id="password" th:field="*{password}" />
-                                    <div th:if="${#fields.hasErrors('password')}" class="text-danger" th:errors="*{password}"></div>
+                                    <label for="phone">Telephone Number:</label>
+                                    <input type="text" class="form-control" id="phone" th:field="*{phone}" />
+                                    <div th:if="${#fields.hasErrors('phone')}" class="text-danger" th:errors="*{phone}"></div>
                                 </div>
                                 <button type="submit" class="btn btn-primary">Register</button>
                             </form>
-                        </div>
-
-
-
-
 
                         </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-</body>
-</html>
-
-
-	<!-- Navbar Section Start -->
-<nav class="navbar navbar-dark navbar-expand-lg"  uk-sticky="top:100; animation: uk-animation-slide-top; bottom: #sticky-on-scroll-up">
-    <div class="container">
-        <a href="index.html" class="navbar-brand">
-            <img src="/img/USAID AMPATH Uzima_v2-01.png" class="img-fluid p-0" style="width: 25%;">
-            <div class="ml-2 p-0 d-inline webT"></div>
-        </a>
-        <button class="navbar-toggler navbar-toggler-right" data-toggle="collapse" data-target="#navBar">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navBar">
-            <ul class="navbar-nav  ml-auto ">
-
-                <li class="nav-item active">
-                    <a class="nav-link " href="index.html">Abstract</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Registration.html">Registration</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Feedback.html">Feedback</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="photo.html">Gallery</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Correspondence.html">Correspondence</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Archives.html">Archives</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</nav>
-<!-- Nav Section End -->
-
-<!-- Slider Section Start -->
-<section id="slider" class="bg-dark">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-            <li class="active" data-slide-to="0" data-target="#myCarousel"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-            <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-        <div class="carousel-inner" role="listbox">
-            <div class="carousel-item crs-img-1 active">
-                <div class="container">
-                    <div class="carousel-caption pb-5 mb-5 text-left">
-                        <h2 class="display-4 text-light">Best Practice Forum</h2>
-
                     </div>
                 </div>
             </div>
-            <div class="carousel-item crs-img-2">
-                <div class="container">
-
-                </div>
-            </div>
-
-
-
-            <a href="#myCarousel" class="carousel-control-prev" data-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </a>
-            <a href="#myCarousel" class="carousel-control-next" data-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </a>
-        </div>
-</section>
-<!-- Slider Section End -->
-
-
-
-<!-- code for pdf upload -->
-
-<!DOCTYPE html>
-<html lang="en-US" dir="ltr" xmlns:th="http://www.w3.org/1999/xhtml">
-
-<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- ===============================================-->
-    <!--    Document Title-->
-    <!-- ===============================================-->
-    <title>AMPATH</title>
-
-    <!-- ===============================================-->
-    <!--    Favicons-->
-    <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" th:href="@{/themes/assets/img/favicons/apple-touch-icon.png}">
-    <link rel="icon" type="image/png" sizes="32x32" th:href="@{/themes/assets/img/favicons/favicon-32x32.png}">
-    <link rel="icon" type="image/png" sizes="16x16" th:href="@{/themes/assets/img/favicons/favicon-16x16.png}">
-    <link rel="shortcut icon" type="image/x-icon" th:href="@{/themes/assets/img/favicons/favicon.ico}">
-    <link rel="manifest" th:href="@{/themes/assets/img/favicons/manifest.json}">
-    <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
-    <meta name="theme-color" content="#87CEEB">
-    <script th:src="@{/themes/vendors/imagesloaded/imagesloaded.pkgd.min.js}"></script>
-    <script th:src="@{/themes/assets/js/config.js}"></script>
-
-    <!-- ===============================================-->
-    <!--    Stylesheets-->
-    <!-- ===============================================-->
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800;900&amp;display=swap" rel="stylesheet">
-    <link th:href="@{/themes/assets/css/theme.min.css}" type="text/css" rel="stylesheet" id="style-default">
-    <link th:href="@{/themes/assets/css/user.min.css}" type="text/css" rel="stylesheet" id="user-style-default">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script>
-      document.documentElement.classList.remove('dark');
-    </script>
-</head>
-
-<body>
-<!-- ===============================================-->
-<!--    Main Content-->
-<!-- ===============================================-->
-
-<section class="py-0">
-    <div class="bg-holder" style="background-image:url(img/ampath.jpeg);background-color: #c3fbf9;background-position:center;background-size:auto;"></div>
-    <!--/.bg-holder-->
-    <div class="container-lg position-relative" style="background-color: #c3fbf9;">
-        <div class="row flex-center">
-            <div class="col-12 col-xl-12 order-1 order-xl-0">
-                <div class="mb-9">
-                    <div class="card shadow-none border border-300 my-4" data-component-card="data-component-card">
-                        <div class="card-header p-4 border-bottom border-300 bg-soft">
-                            <div class="row g-3 justify-content-between align-items-center">
-                                <div class="col-12 col-md">
-                                    <h4 class="text-900 mb-0" data-anchor="data-anchor"> Abstracts </h4>
-                                </div>
-
-                            </div>
-                        </div>
-
-                        <div class="p-4 code-to-copy" style="background-color: #87CEEB;">
-                            <form class="row g-3" th:action="@{/abstracts/call}" th:object="${abstracts}" method="POST" enctype="multipart/form-data" >
-                                <div class="col-md-12">
-                                    <label class="form-label" for="txtTitle">Title</label>
-                                    <input class="form-control" id="txtTitle" type="text" th:field="*{title}" required="required" />
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label" for="cat">Category</label>
-                                    <select class="form-select" id="cat" th:field="*{category}" required="required">
-                                        <option selected="" disabled="" value="">Choose...</option>
-                                        <option value="">... Select ...</option>
-                                        <option value="BP">Best Practice</option>
-                                        <option value="SCI">Scientific</option>
-                                    </select>
-
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label" for="author">Main Author</label>
-                                    <input class="form-control" id="author" type="text" value="" th:field="*{mainauthor}" required="required" />
-                                </div>
-                                <div class="col-md-4">
-                                    <label class="form-label" for="validationCustom02">Co - Authors (Separate with commas ,)</label>
-                                    <input class="form-control" id="validationCustom02" type="text" value="" th:field="*{coauthor}" required="required" />
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="form-label" for="email">Contact Email</label>
-                                    <input class="form-control" id="email" type="email" required="required" th:field="*{email}" />
-
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label" for="phone">Contact Phone Number</label>
-                                    <input class="form-control" id="phone" type="text" required="required" th:field="*{phone}" />
-
-                                </div>
-
-
-                                <div class="col-md-6">
-                                    <label class="form-label" for="txtIntro">Introduction</label>
-                                    <textarea id="txtIntro" class="form-control" name="txtIntro" rows="4" cols="50" required="required" th:field="*{introduction}"></textarea>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label" for="txtMethodology">Methodology</label>
-                                    <textarea id="txtMethodology" class="form-control" name="txtMethodology" rows="4" cols="50" required="required" th:field="*{methodology}"></textarea>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label" for="txtResults">Results</label>
-                                    <textarea id="txtResults" class="form-control" name="txtResult" rows="4" cols="50" required="required" th:field="*{result}"></textarea>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label" for="txtConclusion">Conclusion</label>
-                                    <textarea id="txtConclusion" class="form-control" name="txtConclusion" rows="4" cols="50" required="required" th:field="*{conclusion}"></textarea>
-
-                                </div>
-                                <div class="col-md-12">
-                                    <label class="form-label">Abstract File (in PDF)</label>
-                                    <input type="file"  class="form-control" id="abstractFile" name="abstractFile" accept="application/pdf" required>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-check">
-                                        <input class="form-check-input" id="invalidCheck" type="checkbox" value="" required="" />
-                                        <label class="form-check-label mb-0" for="invalidCheck">Agree to terms and conditions</label>
-                                        <div class="invalid-feedback mt-0">You must agree before submitting.</div>
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <button class="btn btn-primary" type="submit">Submit form</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
         </div>
     </div>
-
+    </div>
 </section>
 
 
-</main><!-- ===============================================-->
-<!--    End of Main Content-->
-<!-- ===============================================-->
-<script>
-$(document).ready(function() {
-if (document.getElementById("txtmsg").value == 0) {
-}
-else if (document.getElementById("txtmsg").value == 2) {
-
-          Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Something went wrong! Try Again !!"
-        });
-    } else{
-        Swal.fire({
-          icon: "success",
-          title: "Submitted Successful",
-          text: "Abstract Submitted Successfully..."
-        });
-
-    }
- });
-
-</script>
 
 
-<!-- ===============================================-->
-<!--    JavaScripts-->
-<!-- ===============================================-->
-<script th:src="@{/themes/vendors/popper/popper.min.js}"></script>
-<script th:src="@{/themes/vendors/bootstrap/bootstrap.min.js}"></script>
-<script th:src="@{/themes/vendors/anchorjs/anchor.min.js}"></script>
-<script th:src="@{/themes/vendors/is/is.min.js}"></script>
-<script th:src="@{/themes/vendors/lodash/lodash.min.js}"></script>
-<script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
-<script src="assets/js/phoenix.js"></script>
-<script src="assets/js/showcase.js"></script>
 </body>
 </html>
-
-
-
-<!-- Info Section Start -->
-<section id="info" class="py-5">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-6 justify-content-center text-left infoS">
-                <h3 >We welcome submissions of Abstracts</h3>
-                <p class="lead">
-
-                </p>
-
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-6 align-self-center">
-                <img src="img/usa.webp" class="img-fluid">
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- Info Section End -->
-
-
-
-<!-- Gallery Section Start -->
-<section id="gallery" class="py-5" uk-lightbox>
-    <div class="container">
-        <div class="row text-center">
-            <div class="col">
-                <h2 class="mb-0">Gallery</h2>
-
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="/img/confg4.jpg">
-                    <img src="/img/confg4.jpg" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="/img/confg1.jpg">
-                    <img src="/img/confg1.jpg" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="/img/confg2.jpg">
-                    <img src="/img/confg2.jpg" class="img-fluid">
-                </a>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="/img/conf1.jpg">
-                    <img src="/img/conf1.jpg" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="/img/conf2.jpg">
-                    <img src="/img/conf2.jpg" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="/img/conf3.jpg">
-                    <img src="/img/conf3.jpg" class="img-fluid">
-                </a>
-            </div>
-        </div>
-        <div class="row mt-3">
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="img/conf4.jpg">
-                    <img src="img/conf4.jpg" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="img/conf5.jpg">
-                    <img src="img/conf5.jpg" class="img-fluid">
-                </a>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-4">
-                <a href="/img/conf6.jpg">
-                    <img src="/img/conf6.jpg" class="img-fluid">
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
-<!-- Gellery Section End -->
-
-<!-- Footer Section Start -->
-<footer id="footer" class="py-3 text-center text-dark">
-    <div class="container">
-        <div class="col">
-            Ampath © 2024 All Rights Reserved
-        </div>
-    </div>
-</footer>
-<!--Footer End Section-->
-
-<script type="text/javascript" src="js/jquery-slim.min.js"></script>
-<script type="text/javascript" src="js/popper.min.js"></script>
-<script type="text/javascript" src="js/bootstrap.min.js"></script>
-<script type="text/javascript" src="js/uikit.min.js"></script>
-<script type="text/javascript" src="js/uikit-icons.min.js"></script>
-</body>
-</html>
-

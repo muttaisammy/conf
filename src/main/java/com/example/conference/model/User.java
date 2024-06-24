@@ -15,16 +15,31 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Your prefix")
+    private String prefix;
+
     @NotBlank(message = "Name is mandatory")
     private String name;
+
+    @NotBlank(message = "Your County")
+    private String county;
+
+    @NotBlank(message = "Your Designation")
+    private String designation;
+
+    @NotBlank(message = "Abstract")
+    private String abstracts;
+
+    @NotBlank(message = "If yes, Title of Abstract")
+    private String title;
 
     @Email(message = "Email should be valid")
     @NotBlank(message = "Email is mandatory")
     private String email;
 
-    @Size(min = 8, message = "Password should be at least 8 characters")
-    @NotBlank(message = "Password is mandatory")
-    private String password;
+    @NotBlank(message = "Your telephone number")
+    private String phone;
+
 
     // Getters and setters
     public Long getId() {
@@ -35,12 +50,52 @@ public class User {
         this.id = id;
     }
 
+    public String getPrefix() {
+        return prefix;
+    }
+
+    public void setPrefix(String prefix) {
+        this.prefix = prefix;
+    }
+
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCounty() {
+        return county;
+    }
+
+    public void setCounty(String county) {
+        this.county = county;
+    }
+
+    public  String  getDesignation() {
+        return designation;
+    }
+    public  void setDesignation(String Designation) {
+        this.designation = designation;
+    }
+
+    public String getAbstracts() {
+        return abstracts;
+    }
+
+    public void setAbstracts(String abstracts) {
+        this.abstracts = abstracts;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getEmail() {
@@ -51,11 +106,11 @@ public class User {
         this.email = email;
     }
 
-    public String getPassword() {
-        return password;
+    public String getPhone() {
+        return phone;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
