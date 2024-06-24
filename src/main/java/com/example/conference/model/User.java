@@ -24,7 +24,7 @@ public class User {
     @NotBlank(message = "Your County")
     private String county;
 
-    @NotBlank(message = "Your Designation")
+    @NotBlank(message = "What is your Designation?")
     private String designation;
 
     @NotBlank(message = "Abstract")
@@ -78,7 +78,8 @@ public class User {
     public  String  getDesignation() {
         return designation;
     }
-    public  void setDesignation(String Designation) {
+    public  void setDesignation(String designation) {
+
         this.designation = designation;
     }
 

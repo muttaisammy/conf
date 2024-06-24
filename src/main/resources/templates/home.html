@@ -177,7 +177,7 @@
                                 <div class="form-group">
                                     <label for="abstracts">Presenting an Abstract? {Yes/No}:</label>
                                     <input type="text" class="form-control" id="abstracts" th:field="*{abstracts}" />
-                                    <div th:if="${#fields.hasErrors('abstracts')}" class="text-danger" th:errors="*{abstracts"></div>
+                                    <div th:if="${#fields.hasErrors('abstracts')}" class="text-danger" th:errors="*{abstracts}"></div>
                                 </div>
                                 <div class="form-group">
                                     <label for="title">If Yes, Abstract Title:</label>
