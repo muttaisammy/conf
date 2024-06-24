@@ -28,7 +28,7 @@
 
 
     <div class="container">
-        <a class="navbar-brand" th:href="@{/index}">
+        <a class="navbar-brand" th:href="@{/}">
             <img style="width: 50%;" class="img-fluid p-0" th:src="@{/img/USAID AMPATH Uzima_v2-01.png}">
             <div class="ml-2 p-0 d-inline webT"></div>
         </a>
@@ -38,22 +38,22 @@
         <div id="navBar" class="collapse navbar-collapse">
             <ul class="navbar-nav justify-content-end">
                 <li class="nav-item active">
-                    <a th:href="@{/home}" class="nav-link">Abstract</a>
+                    <a th:href="@{/}" class="nav-link">Abstract</a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/registration}" class="nav-link">Registration</a>
+                    <a th:href="@{/}" class="nav-link">Registration</a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/feedback}" class="nav-link">Feedback</a>
+                    <a th:href="@{/}" class="nav-link">Feedback</a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/photo}" class="nav-link">Gallery</a>
+                    <a th:href="@{/}" class="nav-link">Gallery</a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/correspondence}" class="nav-link">Correspondence</a>
+                    <a th:href="@{/}" class="nav-link">Correspondence</a>
                 </li>
                 <li class="nav-item">
-                    <a th:href="@{/archives}" class="nav-link">Archives</a>
+                    <a th:href="@{/}" class="nav-link">Archives</a>
                 </li>
             </ul>
         </div>
@@ -109,7 +109,7 @@
                         </div>
 
                         <div style="background-color: #87CEEB;" class="p-4 code-to-copy">
-                            <form enctype="multipart/form-data" method="post" th:action="@{/uploadAbstract}">
+                            <form enctype="multipart/form-data" method="post" th:action="@{/}">
                                 <div class="row g-3 justify-content-between align-items-center">
                                     <div class="col-12 col-md">
                                         <input type="file" class="form-control" id="abstract" name="abstract" required>
